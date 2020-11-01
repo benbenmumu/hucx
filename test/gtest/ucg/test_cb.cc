@@ -158,8 +158,9 @@ TEST_F(ucg_cb_test, test_send_cb) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -185,8 +186,9 @@ TEST_F(ucg_cb_test, test_recv_cb_recv_one) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -225,8 +227,9 @@ TEST_F(ucg_cb_test, test_recv_cb_recv_many) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -277,8 +280,9 @@ TEST_F(ucg_cb_test, test_recv_cb_reduce_one) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -313,8 +317,9 @@ TEST_F(ucg_cb_test, test_recv_cb_reduce_many) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -364,8 +369,9 @@ TEST_F(ucg_cb_test, test_recv_cb_reduce_full) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -409,8 +415,9 @@ TEST_F(ucg_cb_test, test_recv_cb_wait) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -445,8 +452,9 @@ TEST_F(ucg_cb_test, test_recv_cb_last_barrier) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -482,8 +490,9 @@ TEST_F(ucg_cb_test, test_zcopy_step_check_cb) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -512,8 +521,9 @@ TEST_F(ucg_cb_test, test_zcopy_prep) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -532,8 +542,9 @@ TEST_F(ucg_cb_test, test_bcopy_to_zcopy) {
     ucg_collective_params_t *params = create_allreduce_params();
     int8_t *current_data_buffer = NULL;
     ucg_builtin_op_step_t *step = new ucg_builtin_op_step_t();
+    ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-    ucs_status_t ret = ucg_builtin_step_create(phase, extra_flags, base_am_id, group_id,
+    ucs_status_t ret = ucg_builtin_step_create(phase, dtype, dtype, extra_flags, base_am_id, group_id,
                                                params, &current_data_buffer, step);
     ASSERT_EQ(UCS_OK, ret);
 
@@ -665,8 +676,9 @@ TEST_F(ucg_cb_test, test_op_collback_select) {
         ucg_builtin_plan_t *plan = create_method_plan(method[i]);
         ucg_builtin_op_init_cb_t *init_cb = new ucg_builtin_op_init_cb_t;
         ucg_builtin_op_final_cb_t *final_cb = new ucg_builtin_op_final_cb_t;
+        ucp_datatype_t dtype = ucp_dt_make_contig(sizeof(int));
 
-        ucs_status_t ret = ucg_builtin_op_select_callback(plan, init_cb, final_cb);
+        ucs_status_t ret = ucg_builtin_op_select_callback(plan, dtype, dtype, init_cb, final_cb);
 
         ASSERT_EQ(UCS_OK, ret);
     }
