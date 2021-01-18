@@ -95,8 +95,13 @@ function run_with_source()
     run_cmd="${MPI_RUN} ${MPI_OPT} ${alg_opt} ${exc_file}"
     echo "$run_cmd" >> "$origin_output"
     eval "timeout 5m $run_cmd >> $origin_output 2>&1"
-    if [ $? -ne 0 ]; then
-        echo "Failed, case test error" | tee -a "$summary_output"
+    err_code=$?
+    if [ $err_code -ne 0 ]; then
+        if [[ $err_code -eq 124 ]]; then
+            echo "Failed, case test timeout, the timeout value is 5 minute" | tee -a "$summary_output"
+        else
+            echo "Failed, case test error" | tee -a "$summary_output"
+        fi
         failed_files[$fail_num]=$source_file
         failed_alg[$fail_num]="${alg_opt}"
         ((fail_num++))
